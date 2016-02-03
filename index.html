@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/div/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Ecoprácticas</title>
+
+        <!-- Common widget API -->
+        <script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/TVKeyValue.js'></script>
+		<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/Plugin.js'></script>
+		<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/Widget.js'></script>
+		<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/jquery.js'></script>
+        
+		<!-- Lib -->
+		<script type='text/javascript' language='javascript' src='Javascript/Lib/jquery.timeago.js'></script>
+		<script type='text/javascript' language='javascript' src='Javascript/Lib/tweets.js'></script>
+		<script type='text/javascript' language='javascript' src='Javascript/Lib/ads.js'></script>
+		
+        <!-- Widget code -->
+        <script language="javascript" type="text/javascript" src="Javascript/Display.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/Server.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/Player.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/Audio.js"></script>
+		<script language="javascript" type="text/javascript" src="Javascript/Main.js"></script>
+        <script language="javascript" type="text/javascript" src="Javascript/Data.js"></script>
+        
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="CSS/Main.css" type="text/css">        
+		
+    </head>
+
+    <body onload='Main.onLoad();' onunload="Main.onUnload();">
+		<!-- Plugins -->
+        <object id="pluginPlayer" border="0" classid="clsid:SAMSUNG-INFOLINK-PLAYER" style="position: absolute; top: 0px; left: 0px; width: 1px; height: 1px;"></object>
+        <object id="pluginAudio" border=0 classid="clsid:SAMSUNG-INFOLINK-AUDIO" style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px;"></object>
+        <object id="pluginTVMW" border=0 classid="clsid:SAMSUNG-INFOLINK-TVMW" style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px;"></object>
+
+		<!-- Samsung Terms -->
+		<a id="samsung-terms" class="terms-window " href="javascript:void(0)">
+			<div class="terms" >
+				<p>En ningún caso Samsung será responsable por el contenido y/o cualquier tipo de textos o imágenes que contengan las aplicaciones que se descarguen.</p>
+				<p>Dicho Contenido es de responsabilidad exclusiva de la entidad que lo produce. En consecuencia, cualquier acción, reclamo u ofensa originada o sufrida como consecuencia del Contenido, no será responsabilidad de Samsung y deberá ser dirigida a dicha entidad.</p>
+				<p>Al descargar las aplicaciones Usted acuerda:</p>
+				<ul>
+					<li>Utilizar el Contenido descargado de conformidad con la normativa aplicable y según lo indicado en las instrucciones, políticas o páginas que se refieran a la aplicación relativa al contenido descargado;</li>
+					<li>Utilizar el Contenido descargado únicamente para fines privados y en ningún caso para fines comerciales;</li>
+					<li>No realizar copias, entregar, vender, revender, prestar, arrendar, ofrecer, emitir, enviar, distribuir, transferir, comunicar, reproducir, modificar, divulgar, ejecutar, o explotar comercialmente el Contenido descargado, ni ponerlo a disposición de terceros;</li>
+					<li>No utilizar sistemas o medios automatizados, excepto aquellos suministrados por Samsung, para la selección o la descarga del Contenido;</li>
+					<li>No facilitar su contraseña o permitir que terceros accedan al Contenido descargado por Usted;</li>
+					<li>No sacar, eludir, realizar ingeniería inversa, desencriptar o, de algún otro modo, interferir en cualquier procedimiento de uso aplicable o tratar de eludir la gestión de derechos digitales o aplicaciones para la protección frente a copias asociadas al Contenido ni otras tecnologías utilizadas para controlar el acceso al Contenido, el uso del mismo o la identificación de información asociada al Contenido descargado.</li>
+				</ul>
+			</div>
+			<div id="" class="nav-info">
+				<img src="Images/navi/enter.png"></img>&nbsp;<a class="style_navi">Aceptar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="Images/navi/return.png"></img>&nbsp;<a class="style_navi">Rechazar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</div>
+		</a>
+
+		<!-- Dummy anchor as focus for key events -->
+        <a href='javascript:void(0);' id='anchor' onkeydown='Main.keyDown();'></a>
+		
+        <!-- Layout begins -->
+		<img id="loading-indicator" />
+		
+		<img id="pauseIcon" src="/Images/control/pauseIcon.png" />
+		<img id="stopIcon" src="/Images/control/stopIcon.png" />
+		<img id="playIcon" src="/Images/control/playIcon.png" />
+		<img id="ffIcon" src="/Images/control/ffIcon.png" />
+		<img id="rwIcon" src="/Images/control/rwIcon.png" />
+		<div id="volInfo"><div id="vol"></div></div>
+		
+		<div id="main">
+            <div id ="rightHalf">
+                <div id="videoBox_top"></div>
+                <div id="videoBox_left"></div>
+                <div id="videoBox_right"></div>
+				<div id="videoBox_center"></div>
+                <div id="videoBox_bottom">
+                    <div id="time">
+                        <div id="progressBarBG">
+                            <div id="progressBar"></div>
+                        </div>
+                        <div id="timeInfo"></div>
+                    </div>
+                    <div id="volume">
+                        <div id="volumeIcon"></div>
+                        <div id="volumeBarBG">
+                            <div id="volumeBar"></div>
+                        </div>
+                        <div id="volumeInfo"></div>
+                    </div>
+                    <div id="videoControl">
+                        <div id="rewind"></div>
+                        <div id="play"></div>
+                        <div id="stop"></div>
+                        <div id="pause"></div>
+                        <div id="forward"></div>
+                    </div>
+                    <div id="status"></div>
+                </div>
+            </div>
+			<div id="description_top"></div>
+			<div id="description_bottom"></div>
+			<div id="description"></div>
+            <div id="leftHalf">
+				<div id="videoCount"></div>
+                <div id="videoList" class="style_videoList">
+                    <div id="video0"></div>
+                    <div id="video1"></div>
+                    <div id="video2"></div>
+                    <div id="video3"></div>
+                    <div id="video4"></div>
+                </div>
+                <div id="previous"></div>
+                <div id="next"></div>
+            </div> 
+			<div id="twitter">
+				<div id="tweets"></div>
+			</div>
+            <div id="navi">
+                <div id="help_navi">
+					<img src="Images/navi/up_down.png"></img>&nbsp;<a class="style_navi">Mover</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="Images/navi/play.png"></img>
+                    <img src="Images/navi/stop.png"></img>
+                    <img src="Images/navi/pause.png"></img>
+                    <img src="Images/navi/rewind.png"></img>
+                    <img src="Images/navi/forward.png"></img>&nbsp;<a class="style_navi">Video Control</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="Images/navi/enter.png"></img>&nbsp;<a class="style_navi">Full Screen</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="Images/navi/return.png"></img>&nbsp;<a class="style_navi">Volver</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<img src="Images/navi/icon_b.png"></img>&nbsp;<a class="style_navi">Contacto</a>
+                </div>
+            </div>
+			<div id="publicity">
+				<img src="/Images/banner.png" />
+			</div>
+			<div id="error">
+				Error de conexión debido a problema en la red
+			</div>
+        </div>
+		<div id="contact" >
+			<div id="eco">
+			  <p>Ecoprácticas es la síntesis de 11 años de una campaña ecológica en TV a través del programa de producción independiente CNN World Report transmitido por Globovision donde con unos breves &ldquo;Consejos ecológicos&rdquo; se inició. La necesidad de ampliar la campaña para llegar a mas gente, de manera mas efectiva y la sugerencia de un amigo nos llevo a crear Ecoprácticas. La multimedia es un vehiculo eficaz de relativo bajo costo de gran alcance para este fin y además recibir retroalimentación de la gente, de ahí la creación de esta aplicación.</p>
+			  <p>Queremos llegarle a usted para que se una a la protección del ambiente y por lo tanto de la Humanidad. Queremos que el ciudadano común y los decisores se eduquen y concienticen de la urgente necesidad de ejercer acciones en lo individual y lo grupal para este fin. Sea usted bienvenido a Ecoprácticas.</p>
+			  <br/><p>Fernando Jáuregui</p>
+			  <p>Contáctenos al correo ecopracticas@gmail.com</p>
+			</div>
+			<div id="contact_navi" >
+				<img src="Images/navi/icon_b.png"></img>&nbsp;<a class="style_navi">Volver</a>
+			</div>
+		</div>
+		
+    </body>
+</html>

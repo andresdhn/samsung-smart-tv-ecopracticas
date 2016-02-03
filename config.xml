@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget>
+    <ThumbIcon>Images/icon/icon_106.png</ThumbIcon>
+    <BigThumbIcon>Images/icon/icon_115.png</BigThumbIcon>
+    <ListIcon>Images/icon/icon_85.png</ListIcon>
+    <BigListIcon>Images/icon/icon_95.png</BigListIcon>
+    <category>Video</category>
+    <autoUpdate>y</autoUpdate>
+    <type>user</type>
+    <cpname></cpname>
+    <cpauthjs></cpauthjs>
+    <ver>1.006</ver>
+    <mgrver>3.000</mgrver>
+	<apptype>11</apptype>
+    <fullwidget>y</fullwidget>
+    <srcctl>y</srcctl>
+    <ticker>n</ticker>
+    <childlock>n</childlock>
+    <audiomute>n</audiomute>
+    <videomute>n</videomute>
+    <dcont>y</dcont>
+    <network>y</network>
+    <widgetname>Ecoprácticas</widgetname>
+    <description>Temas ambientales, educación y concientización sobre el Ambiente y su uso sustentable y su protección</description>
+    <width>960</width>
+    <height>540</height>
+    <author>
+        <name>Andrés Hernández</name>
+        <email>info@pelonescreativos.com</email>
+        <link>http://www.pelonescreativos.com</link>
+        <organization>Doshmedia, c.a. (Pelones Creativos)</organization>
+    </author>
+</widget>
